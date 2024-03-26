@@ -1,6 +1,8 @@
 let express = require('express');
 let cors = require('cors');
 let app = express();
+const port = process.env.PORT || 3000;
+
 app.use(cors());
 //had to do the above to avoid cors issues
 
