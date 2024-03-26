@@ -1,6 +1,10 @@
 * {
     box-sizing: border-box;
   }
+
+  h1{
+    font-weight: bolder;
+  }
   
   body {
     margin: 0;
@@ -21,12 +25,12 @@
   /* Create four equal columns that sits next to each other */
   .column {
     flex: 25%;
-    max-width: 25%;
-    padding: 0 4px;
+    max-width:25%;
   }
   
   .column img {
     margin-top: 8px;
+    width:95%;
     vertical-align: middle;
   }
   

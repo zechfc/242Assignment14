@@ -72,7 +72,7 @@ let i=0;
             column2.append(img2);
         
         }
-        else if(i <20){
+        else if(i <19){
             i++;
         
             craftsDiv.append(column3);
