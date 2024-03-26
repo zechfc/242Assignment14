@@ -43,6 +43,8 @@ let i=0;
     craftsDiv.append(column3);
     craftsDiv.append(column4);
 
+   
+
     craftsJSON.forEach((craft)=>{
         console.log(i);
         
@@ -51,12 +53,18 @@ let i=0;
             i++;
         
             craftsDiv.append(column1);
-            craftsDiv.classList.add("1")
+            const box = document.createElement("section");
         
         
             const img = document.createElement("img");
+            
+
+
             img.src = craft.image;
             column1.append(img);
+            img.addEventListener("click", () => {
+                pop(craft);
+            });
            
         }
     
@@ -64,37 +72,42 @@ let i=0;
             i++;
         
             craftsDiv.append(column2);
-            craftsDiv.classList.add("2")
-        
+            const box = document.createElement("section");
+            box.classList.add("hide")
         
             const img2 = document.createElement("img");
             img2.src = craft.image;
             column2.append(img2);
-        
+            img2.addEventListener("click", () => {
+                pop(craft);
+            });
         }
         else if(i <19){
             i++;
         
             craftsDiv.append(column3);
-            craftsDiv.classList.add("3")
+    
         
         
             const img3 = document.createElement("img");
             img3.src = craft.image;
             column3.append(img3);
-        
+            img3.addEventListener("click", () => {
+                pop(craft);
+            });
         }
         else{
             i++;
         
             craftsDiv.append(column4);
-            craftsDiv.classList.add("4")
-        
-        
+            const box = document.createElement("section");
+            
             const img4 = document.createElement("img");
             img4.src = craft.image;
             column4.append(img4);
-
+            img4.addEventListener("click", () => {
+                pop(craft);
+            });
         
         }
 
@@ -104,49 +117,57 @@ let i=0;
        
     
     })
-   }
+   };
+//https://www.w3schools.com/w3css/w3css_modal.asp
 
+const pop = (craft) => {
+    document.getElementById("dialog").style.display = "block";
 
-//    for(i;i<=12;i++){
-// console.log(i);
+    const box = document.getElementById("dialog-content");
+    const imgSection = document.getElementById("dialog-img");
 
-// let j=0;
+    if (box.innerHTML !== null) {
+        box.innerHTML = "";
+        imgSection.innerHTML = " ";
+    }
 
-//     craftsJSON.forEach((craft)=>{
+    const imgpop = document.createElement("img");
+    imgpop.src = craft.image;
 
-//         if(j<6){
-//             j++;
-//             console.log(j +"stop")
-//             return;
-//         }
-//         console.log(j +"test")
+    const title = document.createElement("h2");
+    title.innerHTML = craft.name;
 
-//         const row = document.createElement("div");
-//         const column = document.createElement("div");
+    const subheader = document.createElement("h3");
+    subheader.innerHTML = "Supplies";
+
+    const list = document.createElement("ul");
+    craft.supplies.forEach((supplies) => {
+        const supplies1 = document.createElement("li");
+        supplies1.innerHTML = supplies;
+        list.append(supplies1);
+    });
+
+    const desc = document.createElement("p");
+    desc.innerHTML = craft.description;
+
+    imgSection.append(imgpop);
+
+    box.append(title);
+    box.append(desc);
+    box.append(subheader);
+    box.append(list);
     
-//         craftsDiv.append(row);
-//         row.append(column);
-    
-    
-//         const img = document.createElement("img");
-//         img.src = craft.image;
-//         column.append(img);
-//         j++
+};
 
-//         console.log(j + "go")
-//         return;
-        
     
-//     })
-//     if(i===12){
-//         console.log(i);
-//         break
 
-//     }
-//    }
-   
- 
 
+
+    document.getElementById("dialog-close").onclick = () => {
+        document.getElementById("dialog").style.display = "none";
+    };
 
 
 showcrafts();
+
+
