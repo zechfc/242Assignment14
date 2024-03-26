@@ -1,7 +1,7 @@
-let express = require('express');
-let cors = require('cors');
-let app = express();
-const port = process.env.PORT || 3000;
+const express = require("express");
+const app = express();
+app.use(express.static("public"));
+
 
 app.use(cors());
 //had to do the above to avoid cors issues
