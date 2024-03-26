@@ -1,4 +1,6 @@
 const express = require("express");
+const cors = require("cors");
+
 const app = express();
 app.use(express.static("public"));
 
@@ -29,7 +31,7 @@ app.get("/api/crafts", (req,res) => {
         name: "Button Flowers",
         image: "button-flowers.jpeg",
         description: "Create a fun bouquet of flowers with your favorite buttons",
-        "supplies": [
+        supplies: [
             "multicolored buttons",
             "multicolored flet",
             "green straws",
@@ -37,19 +39,19 @@ app.get("/api/crafts", (req,res) => {
           ]
     };
     crafts[3] = {
-        "name": "Cheerio Necklaces",
-        "image": "cheerio-necklace.webp",
-        "description": "Create a fun and edible necklace",
-        "supplies": [
+        name: "Cheerio Necklaces",
+        image: "cheerio-necklace.webp",
+        description: "Create a fun and edible necklace",
+        supplies: [
           "Cheerios or Fruit Loops",
           "Elastic string"
         ]
       },
       crafts[4] = {
-        "name": "Cotton Ball Cupcakes",
-        "image": "cotton-ball-cupcakes.webp",
-        "description": "Decorate your fun filled cupcake however you want.",
-        "supplies": [
+        name: "Cotton Ball Cupcakes",
+        image: "cotton-ball-cupcakes.webp",
+        description: "Decorate your fun filled cupcake however you want.",
+        supplies: [
           "Construction Paper",
           "Cotton Balls",
           "Black Sharpie",
@@ -57,10 +59,10 @@ app.get("/api/crafts", (req,res) => {
         ]
       },
       crafts[5] = {
-        "name": "School Themed Mason Jars",
-        "image": "decorated-jars.jpeg",
-        "description": "Let's make mason jars to ",
-        "supplies": [
+        name: "School Themed Mason Jars",
+        image: "decorated-jars.jpeg",
+        description: "Let's make mason jars to ",
+        supplies: [
           "Construction Paper",
           "Cotton Balls",
           "Black Sharpie",
@@ -68,10 +70,10 @@ app.get("/api/crafts", (req,res) => {
         ]
       },
       crafts[6] =  {
-        "name": "Egg Carton Flowers",
-        "image": "egg-carton-flowers.jpg",
-        "description": "Make a beautiful bouquet with egg cartons and other items you can find around the house",
-        "supplies": [
+        name: "Egg Carton Flowers",
+        image: "egg-carton-flowers.jpg",
+        description: "Make a beautiful bouquet with egg cartons and other items you can find around the house",
+        supplies: [
           "Egg Cartons",
           "Butons",
           "Green Pipe Cleaner",
@@ -80,20 +82,20 @@ app.get("/api/crafts", (req,res) => {
         ]
       },
       crafts[7] = {
-        "name": "Finger Puppets",
-        "image": "finger-puppets.jpeg",
-        "description": "These little critters are easy to make, and will entertain your little one while they make a show.",
-        "supplies": [
+        name: "Finger Puppets",
+        image: "finger-puppets.jpeg",
+        description: "These little critters are easy to make, and will entertain your little one while they make a show.",
+        supplies: [
           "Pom-poms",
           "Googly Eyes",
           "Pipe Cleaner"
         ]
       },
       crafts[8] = {
-        "name": "Ribbon Flower Headbands",
-        "image": "flower-headbands.jpg",
-        "description": "Let your little one show off her new style with these pretty and customizable headbands",
-        "supplies": [
+        name: "Ribbon Flower Headbands",
+        image: "flower-headbands.jpg",
+        description: "Let your little one show off her new style with these pretty and customizable headbands",
+        supplies: [
           "Plain headband",
           "Ribbon",
           "Buttons",
@@ -101,10 +103,10 @@ app.get("/api/crafts", (req,res) => {
         ]
       },
       crafts[9] = {
-        "name": "Hand Print Fish Puppets",
-        "image": "handprint-fish.jpg",
-        "description": "We all need to take every opportunity we can to remember those tiny hands, and what better way to do it, then to make fish puppets!",
-        "supplies": [
+        name: "Hand Print Fish Puppets",
+        image: "handprint-fish.jpg",
+        description: "We all need to take every opportunity we can to remember those tiny hands, and what better way to do it, then to make fish puppets!",
+        supplies: [
           "Popsicle sticks",
           "Cardstock",
           "Gems",
@@ -112,29 +114,29 @@ app.get("/api/crafts", (req,res) => {
         ]
       },
       crafts[10] = {
-        "name": "Hand Print Tree",
-        "image": "hand-print-tree.jpeg",
-        "description": "This is a fun way to get your little one into finger painting.",
-        "supplies": [
+        name: "Hand Print Tree",
+        image: "hand-print-tree.jpeg",
+        description: "This is a fun way to get your little one into finger painting.",
+        supplies: [
           "Watercolor Paper",
           "Finger paint"
         ]
       },
       crafts[11] = {
-        "name": "Melted Bead Bowl",
-        "image": "melted-bead-bowl.jpeg",
-        "description": "All they need to do is shape their faviorte design, warm it up and they have a brand new bowl.",
-        "supplies": [
+        name: "Melted Bead Bowl",
+        image: "melted-bead-bowl.jpeg",
+        description: "All they need to do is shape their faviorte design, warm it up and they have a brand new bowl.",
+        supplies: [
           "Beads",
           "Bowl",
           "Parchment paper"
         ]
       },
       crafts[12] = {
-        "name": "Monster Kites",
-        "image": "monster-rolls.jpg",
-        "description": "Let's make those scary toilet paper rolls fly!",
-        "supplies": [
+        name: "Monster Kites",
+        image: "monster-rolls.jpg",
+        description: "Let's make those scary toilet paper rolls fly!",
+        supplies: [
           "Toilet paper rolls",
           "Paint",
           "Tissue Paper",
@@ -142,20 +144,20 @@ app.get("/api/crafts", (req,res) => {
         ]
       },
       crafts[13] ={
-        "name": "Pool Noodle Boats",
-        "image": "noodle-boats.png",
-        "description": "Let's make a boat that will actually float, due to the floating bottom of a pool noodle.",
-        "supplies": [
+        name: "Pool Noodle Boats",
+        image: "noodle-boats.png",
+        description: "Let's make a boat that will actually float, due to the floating bottom of a pool noodle.",
+        supplies: [
           "Pool Noodle",
           "Straw",
           "Plastic Paper"
         ]
       },
       crafts[14] = {
-        "name": "Paper Plate Bees",
-        "image": "paper-plate-bees.jpeg",
-        "description": "Let's have fun with making cute little bees, or big bees actually.",
-        "supplies": [
+        name: "Paper Plate Bees",
+        image: "paper-plate-bees.jpeg",
+        description: "Let's have fun with making cute little bees, or big bees actually.",
+        supplies: [
           "Paper Plate",
           "Googly Eyes",
           "Close Pins",
@@ -165,10 +167,10 @@ app.get("/api/crafts", (req,res) => {
         ]
       },
       crafts[15] ={
-        "name": "Paper Plate Dinosaurs",
-        "image": "paper-plate-dinosaurs.jpg",
-        "description": "Who would have thought that half a paper plate would be the base of a dinosaur.",
-        "supplies": [
+        name: "Paper Plate Dinosaurs",
+        image: "paper-plate-dinosaurs.jpg",
+        description: "Who would have thought that half a paper plate would be the base of a dinosaur.",
+        supplies: [
           "Paper Plate",
           "Paint",
           "Close Pins",
@@ -176,10 +178,10 @@ app.get("/api/crafts", (req,res) => {
         ]
       },
       crafts[16] ={
-        "name": "Porcupine Leafs",
-        "image": "porcupine-leaf.webp",
-        "description": "Let's turn an ordinary paper plate into a fun filled mask.",
-        "supplies": [
+        name: "Porcupine Leafs",
+        image: "porcupine-leaf.webp",
+        description: "Let's turn an ordinary paper plate into a fun filled mask.",
+        supplies: [
           "Leafs",
           "Berries",
           "Acorns",
@@ -187,38 +189,38 @@ app.get("/api/crafts", (req,res) => {
         ]
       },
       crafts[17] ={
-        "name": "Rainbow Cloud",
-        "image": "rainbow-cloud.webp",
-        "description": "Some cotton and color and you'll have a beautiful rainbow.",
-        "supplies": [
+        name: "Rainbow Cloud",
+        image: "rainbow-cloud.webp",
+        description: "Some cotton and color and you'll have a beautiful rainbow.",
+        supplies: [
           "Paper Plate",
           "Cotton Balls",
           "Construction Paper"
         ]
       },
       crafts[18] ={
-        "name": "Fun Shaped Crayons",
-        "image": "shaped-crayons.jpg",
-        "description": "Let's melt some crayons together and let them harden into fun shapes.",
-        "supplies": [
+        name: "Fun Shaped Crayons",
+        image: "shaped-crayons.jpg",
+        description: "Let's melt some crayons together and let them harden into fun shapes.",
+        supplies: [
           "Broken Crayons",
           "Mold"
         ]
       },
       crafts[19] ={
-        "name": "Straw Farris Wheel",
-        "image": "straw-faris-wheel.jpg",
-        "description": "It might be too small to ride, but this farris wheel is the most colorful of all.",
-        "supplies": [
+        name: "Straw Farris Wheel",
+        image: "straw-faris-wheel.jpg",
+        description: "It might be too small to ride, but this farris wheel is the most colorful of all.",
+        supplies: [
           "Multicolored straws",
           "Platform"
         ]
       },
       crafts[20] ={
-        "name": "Sunny String",
-        "image": "sun-string.jpg",
-        "description": "Let's practice our fine motor skills while we weave the string into a fun sun.",
-        "supplies": [
+        name: "Sunny String",
+        image: "sun-string.jpg",
+        description: "Let's practice our fine motor skills while we weave the string into a fun sun.",
+        supplies: [
           "Yellow String",
           "Paper Plate",
           "Yellow construction paper",
@@ -226,30 +228,30 @@ app.get("/api/crafts", (req,res) => {
         ]
       },
       crafts[21] ={
-        "name": "Tissue Ballerinas",
-        "image": "tisue-dancer.jpeg",
-        "description": "These beautiful dancers will look great on display",
-        "supplies": [
+        name: "Tissue Ballerinas",
+        image: "tisue-dancer.jpeg",
+        description: "These beautiful dancers will look great on display",
+        supplies: [
           "Pipe cleaner",
           "Tissue Paper",
           "Elastics"
         ]
       },
       crafts[22] ={
-        "name": "Toilet Paper Roll Animals",
-        "image": "toilet-paper-animals.jpeg",
-        "description": "These beautiful dancers will look great on display",
-        "supplies": [
+        name: "Toilet Paper Roll Animals",
+        image: "toilet-paper-animals.jpeg",
+        description: "These beautiful dancers will look great on display",
+        supplies: [
           "Toilet Paper Rolls",
           "Construction Paper",
           "Googly Eyes"
         ]
       },
       crafts[23] ={
-        "name": "Toilet Paper Butterfly",
-        "image": "toilet-paper-butterfly.jpg",
-        "description": "Such a sweat little flyer",
-        "supplies": [
+        name: "Toilet Paper Butterfly",
+        image: "toilet-paper-butterfly.jpg",
+        description: "Such a sweat little flyer",
+        supplies: [
           "Toilet Paper Rolls",
           "Construction Paper",
           "Googly Eyes",
@@ -257,10 +259,10 @@ app.get("/api/crafts", (req,res) => {
         ]
       },
       crafts[24] ={
-        "name": "Valentines Jar",
-        "image": "valentines-jar.webp",
-        "description": "So much hearts all in one",
-        "supplies": [
+        name: "Valentines Jar",
+        image: "valentines-jar.webp",
+        description: "So much hearts all in one",
+        supplies: [
           "Clay",
           "Glitter"
         ]
