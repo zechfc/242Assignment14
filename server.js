@@ -3,7 +3,6 @@ const app = express();
 app.use(express.static("public"));
 
 
-app.use(cors());
 //had to do the above to avoid cors issues
 
 app.get("/", (req,res)=>{
