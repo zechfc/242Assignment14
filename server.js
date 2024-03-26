@@ -1,7 +1,8 @@
-const express = require("express");
-
-const app = express();
-app.use(express.static("public"));
+var express = require('express');
+var cors = require('cors');
+var app = express();
+app.use(cors());
+//had to do the above to avoid cors issues
 
 app.get("/", (req,res)=>{
     res.sendFile(__dirname + "/index.html");
