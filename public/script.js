@@ -1,6 +1,6 @@
-const getAnimals = async() => {
+const getcrafts = async() => {
     try{
-        return (await fetch("http://localhost:3000/api/animals")).json();
+        return (await fetch("http://localhost:3000/api/crafts")).json();
     } catch (error){
         console.log("error retrieving data");
         return "";
@@ -8,28 +8,28 @@ const getAnimals = async() => {
 
 };
 
-const showAnimals = async() => {
-    const animalsJSON = await getAnimals();
-    const animalsDiv = document.getElementById("animals-div")
+const showcrafts = async() => {
+    const craftsJSON = await getcrafts();
+    const craftsDiv = document.getElementById("crafts-div")
 
-    if(animalsJSON == ""){
-        animalsDiv.innerHTML = "sorry no animals";
+    if(craftsJSON == ""){
+        craftsDiv.innerHTML = "sorry no crafts";
         return;
     }
     //now loop through the json
-    animalsJSON.forEach((animal)=>{
+    craftsJSON.forEach((craft)=>{
         const section = document.createElement("section");
-        animalsDiv.append(section);
+        craftsDiv.append(section);
 
         const h3 = document.createElement("h3");
-        h3.innerHTML = animal.name;
+        h3.innerHTML = craft.name;
         section.append(h3);
 
         const img = document.createElement("img");
-        img.src = "http://localhost:3000/" + animal.img;
+        img.src = "http://localhost:3000/" + craft.img;
         section.append(img);
     })
-    console.log(animalsJSON);
+    console.log(craftsJSON);
 };
 
-showAnimals();
+showcrafts();
